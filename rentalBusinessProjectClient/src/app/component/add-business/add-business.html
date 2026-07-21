@@ -1,0 +1,84 @@
+<div class="add-business-wrapper">
+  <div class="form-container">
+    <h2>{{ isEditMode ? 'עריכת פרטי הגמ"ח' : 'הוספת גמ"ח חדש' }}</h2>
+    <p class="subtitle">מלאו את פרטי הגמ"ח שלכם </p>
+    
+    <div class="address-alert">
+      💡 לשים לב למלא כתובת נכונה כפי שמופיעה בגוגל מפס כדי להבטיח שהגמ"ח שלכם יופיע במפה וכולם יוכלו למצוא אתכם
+    </div>
+
+    <div class="form-group fast-search-group">
+      <label>חיפוש כתובת מהיר:</label>
+      <div class="input-with-icon">
+        <span class="field-icon"></span>
+        <input type="text" id="address-input" placeholder="התחל להקליד כתובת..." class="form-control">
+      </div>
+    </div>
+
+    <form [formGroup]="businessForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>שם הגמ"ח</label>
+        <input type="text" formControlName="name">
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>עיר</label>
+          <div class="input-with-icon">
+            <span class="field-icon"></span>
+            <input type="text" formControlName="city">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>שכונה</label>
+          <input type="text" formControlName="neighborhood">
+        </div>
+        <div class="form-group">
+          <label>רחוב</label>
+          <input type="text" formControlName="street">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>מספר בית</label>
+        <input type="text" formControlName="houseNumber">
+      </div>
+
+      <div class="form-group">
+        <label>טלפון ליצירת קשר</label>
+        <div class="input-with-icon">
+          <span class="field-icon">📞</span>
+          <input type="text" formControlName="phoneNumber">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>שעת פתיחה</label>
+          <div class="input-with-icon">
+            <span class="field-icon">🕒</span>
+            <input type="time" formControlName="openTime">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>שעת סגירה</label>
+          <div class="input-with-icon">
+            <span class="field-icon">🕒</span>
+            <input type="time" formControlName="closeTime">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>הערות</label>
+          <input type="text" formControlName="comments">
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="businessForm.invalid || isLoading()" class="submit-btn">
+        {{ isEditMode ? 'עדכן פרטי גמ"ח' : 'פרסם גמ"ח במערכת' }}
+      </button>
+
+    </form>
+  </div>
+</div>

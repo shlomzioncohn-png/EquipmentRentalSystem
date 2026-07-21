@@ -1,0 +1,135 @@
+.my-businesses-container {
+  padding: 40px 5%;
+  direction: rtl;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-section h1 {
+  color: #0f172a;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.create-new-btn {
+  background-color: #4f46e5; /* כחול-סגלגל מותאם לכפתור הראשי */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.create-new-btn:hover {
+  background-color: #4338ca;
+  transform: translateY(-1px);
+}
+
+.business-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.business-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.business-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-content h3 {
+  margin: 0 0 8px 0;
+  color: #0f172a;
+  font-size: 1.3rem;
+}
+
+.business-location {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0 0 20px 0;
+}
+
+/* קבוצות כפתורים */
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actions-row-primary {
+  display: flex;
+  gap: 10px;
+}
+
+.actions-row-secondary {
+  display: flex;
+  gap: 8px;
+}
+
+/* --- בסיס עיצובי אחיד לחלוטין לכל הכפתורים --- */
+.btn-style {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-sizing: border-box;
+  color: white; /* טקסט לבן לכולם לקריאות מושלמת */
+}
+
+.btn-style:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 1. כפתורי שורה עליונה - כחול סגלגל (Indigo) חי וברור */
+.btn-primary-action {
+  flex: 1;
+  background-color: #bab9c2; 
+}
+
+.btn-primary-action:hover {
+  background-color: #5f5c76; /* כהה יותר בריחוף */
+}
+
+/* 2. כפתורי שורה תחתונה (ניהול) - בדיוק אותו צבע, רק קצת יותר כהה ועמוק */
+.btn-secondary-action {
+  flex: 1;
+  background-color: #bab9c2; 
+}
+
+.btn-secondary-action:hover {
+  background-color: #5f5c76; /* כהה עוד יותר בריחוף */
+}
+
+.loader, .empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-size: 1.1rem;
+}

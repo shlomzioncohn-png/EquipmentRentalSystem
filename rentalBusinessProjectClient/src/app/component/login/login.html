@@ -1,0 +1,69 @@
+<div class="login-wrapper">
+  <div class="login-container">
+    <div class="login-header">
+      </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      @if (!userService.currentUser()) {
+      <h2>ברוכים השבים</h2>
+      <p class="welcome-text">התחברו כדי להמשיך לנהל את הגמח"ים שלכם</p>
+      
+      <div class="form-field">
+        <label>מייל</label>
+        <div class="input-with-icon">
+          <span class="field-icon">✉️</span>
+          <input type="email" formControlName="email" placeholder="example@email.com">
+        </div>
+        <small class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          נא להזין כתובת מייל תקינה
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label>סיסמה</label>
+        <div class="input-with-icon">
+          <span class="field-icon">🔒</span>
+          <input type="password" formControlName="password" placeholder="הכנס את הסיסמה שלך">
+        </div>
+        <small class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          נא להזין סיסמה תקינה
+        </small>
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid || isLoading()" class="submit-btn">
+        {{ isLoading() ? 'מתחבר...' : 'התחבר' }}
+      </button>
+
+      <div class="footer-links">
+        <span>עוד לא נרשמת?</span>
+        <a routerLink="/register">צור חשבון חדש</a>
+      </div>
+      }
+
+      @if (userService.currentUser()) {
+      <div class="user-actions">
+        <div class="logged-in-header">
+          <h3>החשבון שלך</h3>
+          <p>מחובר למערכת בהצלחה</p>
+        </div>
+
+        <button type="button" routerLink="/edit-profile" class="submit-btn update-btn">
+          📝 עדכן פרטים אישיים
+        </button>
+
+        <button type="button" (click)="logout()" class="submit-btn logout-btn">
+          התנתק מהמערכת
+        </button>
+
+        <div class="danger-zone">
+          <button type="button" (click)="deleteUser()" class="delete-account-btn">
+            🚪 מחק חשבון וצא לצמיתות
+          </button>
+        </div>
+      </div>
+      }
+    </form>
+
+  </div>
+</div>

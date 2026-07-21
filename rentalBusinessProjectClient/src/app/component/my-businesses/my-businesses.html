@@ -1,0 +1,51 @@
+<div class="my-businesses-container">
+    <div class="header-section">
+        <h1>הגמח"ים שלי</h1>
+        <button class="create-new-btn" routerLink="/add-business">➕ פתח גמ"ח נוסף</button>
+    </div>
+
+    @if (isLoading()) {
+    <div class="loader">טוען את הגמח"ים שלך...</div>
+    } @else if (myBusinesses().length === 0) {
+    <div class="empty-state">
+        <p>עדיין לא הקמת הגמח"ים במערכת.</p>
+    </div>
+    } @else {
+    <div class="business-grid">
+        @for (bus of myBusinesses(); track bus.id) {
+        <div class="business-card">
+            <div class="card-content">
+                <h3>{{ bus.name }}</h3>
+                <p class="business-location"> {{ bus.city }}</p>
+            </div>
+
+            <div class="card-actions">
+                <div class="actions-row-primary">
+                    <button [routerLink]="['/add-item', bus.id]" class="btn-style btn-primary-action">
+                        ➕ הוסף ציוד
+                    </button>
+
+                    <button [routerLink]="['/item-list', bus.id]" class="btn-style btn-primary-action">
+                        📦 הצג ציוד
+                    </button>
+                </div>
+
+                <div class="actions-row-secondary">
+                    <button [routerLink]="['/business-detail', bus.id]" class="btn-style btn-secondary-action">
+                        פרטים
+                    </button>
+                    
+                    <button [routerLink]="['/edit-business', bus.id]" class="btn-style btn-secondary-action">
+                        ✏️ עריכה
+                    </button>
+
+                    <button (click)="deleteBusiness(bus.id)" class="btn-style btn-secondary-action">
+                        🗑️ מחק
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>

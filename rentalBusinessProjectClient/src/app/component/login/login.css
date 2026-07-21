@@ -1,0 +1,212 @@
+/* מיכל הרקע הכללי */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  direction: rtl;
+  padding: 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* כרטיס הטופס הראשי */
+.login-container {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid #f1f5f9;
+}
+
+/* כותרות */
+.login-container h2 {
+  color: #0f172a;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.welcome-text {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* שדות קלט ומבנה */
+.form-field {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+/* מעטפת קלט עם אייקון פנימי */
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 12px 42px 12px 16px; /* רווח ימני בשביל האייקון */
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-with-icon input:focus {
+  border-color: #6366f1;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.field-icon {
+  position: absolute;
+  right: 14px;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+/* שגיאות */
+.error {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* כפתורים */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #6366f1; /* צבע אינדיגו מודרני */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  background-color: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* קישורי תחתית */
+.footer-links {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.footer-links a {
+  color: #6366f1;
+  text-decoration: none;
+  margin-right: 6px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* אזור משתמש מחובר */
+.user-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.logged-in-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.logged-in-header h3 {
+  color: #0f172a;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.logged-in-header p {
+  color: #0c0c0c; /* ירוק חיווי הצלחה */
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.update-btn {
+  background-color: #64748b; /* אפור סולידי להתנתקות */
+}
+
+.update-btn:hover {
+  background-color: #475569;
+}
+
+.logout-btn {
+  background-color: #64748b; /* אפור סולידי להתנתקות */
+}
+
+.logout-btn:hover {
+  background-color: #64748b; /* אפור סולידי להתנתקות */
+}
+
+/* אזור רגיש (מחיקת חשבון) */
+.danger-zone {
+  margin-top: 16px;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 16px;
+}
+
+.delete-account-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff1f2;
+  color: #f43f5e;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-account-btn:hover {
+  background-color: #ffe4e6;
+  color: #e11d48;
+  border-color: #fda4af;
+}

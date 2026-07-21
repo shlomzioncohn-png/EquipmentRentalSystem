@@ -1,0 +1,55 @@
+<div class="register-wrapper">
+  <div class="register-container">
+    <div class="register-header">
+      <h2>{{ isEditMode() ? 'עריכת פרטי חשבון' : 'הצטרפו לקהילת הגמח"ים' }}</h2>
+      <p>{{ isEditMode() ? 'כאן תוכל לעדכן את השם, המייל והסיסמה שלך' : 'מלאו את הפרטים שלכם כדי שכולם יכירו את הגמ"ח
+        שלכם' }}</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-field">
+        <label>שם מלא</label>
+        <input type="text" formControlName="name" placeholder="הכנס שם מלא">
+        <small class="error" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+          שם מלא הוא שדה חובה (לפחות 2 תווים)
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label>אימייל</label>
+        <input type="email" formControlName="email" placeholder="example@mail.com">
+        <small class="error" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          נא להזין כתובת מייל תקינה
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label>סיסמה {{ isEditMode() ? 'חדשה (או הנוכחית)' : '' }}</label>
+        <input type="password" formControlName="password" placeholder="לפחות 6 תווים">
+        <small class="error" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          הסיסמה חייבת להכיל לפחות 6 תווים
+        </small>
+      </div>
+
+      <button type="submit" [disabled]="registerForm.invalid || isLoading()" class="submit-btn">
+        @if (isLoading()) {
+        <span>{{ isEditMode() ? 'מעדכן פרטים...' : 'יוצר חשבון...' }} ⏳</span>
+        } @else {
+        <span>{{ isEditMode() ? 'שמור שינויים' : 'צור חשבון חדש' }}</span>
+        }
+      </button>
+
+      @if (!isEditMode()) {
+      <div class="footer-links">
+        <span>כבר יש לך חשבון?</span>
+        <a routerLink="/login">התחבר כאן</a>
+      </div>
+      } @else {
+      <div class="footer-links">
+        <a routerLink="/">ביטול וחזרה לדף הבית</a>
+      </div>
+      }
+    </form>
+  </div>
+</div>

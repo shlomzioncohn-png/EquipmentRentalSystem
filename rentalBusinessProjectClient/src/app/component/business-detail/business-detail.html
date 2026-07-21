@@ -1,0 +1,70 @@
+<div class="page-wrapper">
+  @if (business(); as b) {
+  <div class="back-nav" (click)="goBack()">
+    <span>→ חזרה לרשימת הגמח"ים</span>
+  </div>
+  <div class="detail-container">
+    <div class="detail-header">
+      <div class="header-main">
+        <span class="verified-badge">גמ"ח מאומת במערכת</span>
+        <h1>{{ b.name }}</h1>
+        <p class="owner-text">בניהול: <strong>{{ b.ownerName || 'בעלים רשום' }}</strong></p>
+      </div>
+      <div class="header-icon">🏢</div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="card-icon">📍</div>
+        <div class="card-text">
+          <h4>מיקום</h4>
+          <p>{{ b.city }}, {{ b.street }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon">🕒</div>
+        <div class="card-text">
+          <h4>שעות פעילות</h4>
+          <p>{{ b.openTime }} - {{ b.closeTime }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon">📞</div>
+        <div class="card-text">
+          <h4>יצירת קשר</h4>
+          <p>{{ b.phoneNumber }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon">✉️</div>
+        <div class="card-text">
+          <h4>דואר אלקטרוני</h4>
+          <p>{{ b.email }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions-section" style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+      
+      <button [routerLink]="['/item-list', b.id]" class="inventory-btn" style="background-color: #6366f1; color: white; padding: 12px 24px; border-radius: 10px; border: none; cursor: pointer; font-weight: 600;">
+        📦 הצג את כל הציוד בגמ"ח
+      </button>
+
+      @if (userService.currentUser()) {
+        <button [routerLink]="['/add-item', b.id]" class="add-btn">
+          ➕ הוסף ציוד חדש
+        </button>
+      }
+    </div>
+
+  </div>
+  } @else if (isLoading()) {
+  <div class="loader-container">
+    <div class="loader"></div>
+    <p>טוען את פרטי הגמ"ח...</p>
+  </div>
+  }
+</div>

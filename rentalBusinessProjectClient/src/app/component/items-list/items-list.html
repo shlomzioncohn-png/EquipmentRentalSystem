@@ -1,0 +1,73 @@
+<div class="inventory-container">
+  <div class="header">
+    <h1>מלאי הציוד בגמ"ח</h1>
+    @if (userService.currentUser()) {
+    <button [routerLink]="['/add-item', businessId()]" class="btn-add-inline">➕ הוסף פריט חדש</button>
+    }
+  </div>
+
+  @if (isLoading()) {
+  <div class="loader-status">טוען מלאי...</div>
+  } @else if (items().length === 0) {
+  <div class="empty-inventory">
+    <p>אין עדיין ציוד רשום בגמ"ח זה.</p>
+  </div>
+  } @else {
+  <table class="inventory-table">
+    <thead>
+      <tr>
+        <th>שם</th>
+        <th>תיאור</th>
+        <th>כמות</th>
+        <th>להשאלה?</th>
+        <th>מחיר</th>
+        <th>הערות</th>
+
+        @if (userService.currentUser()) {
+        <th>פעולות</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of items(); track item.id) {
+      <tr>
+        <td class="item-name">{{ item.name }}</td>
+        <td class="item-desc">{{ item.description }}</td>
+        <td><span class="badge-amount">{{ item.amount }}</span></td>
+
+        <td>
+          @if (item.isReturnable) {
+          <span class="badge-status loan-true">להשאלה</span>
+          } @else {
+          <span class="badge-status loan-false">לא להשאלה</span>
+          }
+        </td>
+
+        <td class="item-price">₪{{ item.price }}</td>
+        <td class="item-comments">{{ item.comments }}</td>
+        @if (userService.currentUser()) {
+        <td>
+          <div class="table-actions">
+            <button class="action-table-btn btn-edit-item" [routerLink]="['/edit-item', businessId(), item.id]">
+              ✏️ ערוך
+            </button>
+            <button class="action-table-btn btn-delete-item" (click)="deleteItem(item.id)">
+              🗑️ מחק
+            </button>
+          </div>
+        </td>
+        }
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
+
+  <div class="footer-actions">
+    @if (userService.currentUser()) {
+    <button class="back-link-btn" routerLink="/my-businesses">⬅️ חזרה לגמ"ח שלי</button>
+    } @else {
+    <button class="back-link-btn" routerLink="/businesses">⬅️ חזרה לגמ"ח</button>
+    }
+  </div>
+</div>

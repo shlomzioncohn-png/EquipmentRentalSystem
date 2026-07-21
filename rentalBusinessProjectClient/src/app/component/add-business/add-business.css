@@ -1,0 +1,175 @@
+/* הגדרות כלליות לדף */
+.add-business-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+    direction: rtl;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* המכולה של הטופס */
+.form-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 700px; /* הגדלה קטנה בשביל מרחב נשימה בשורות */
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    border: 1px solid #e2e8f0;
+}
+
+/* כותרות */
+.form-container h2 {
+    color: #0f172a;
+    font-size: 26px;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #64748b;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+/* קופסת התראה מעוצבת להנחיות הכתובת */
+.address-alert {
+    background-color: #fefce8;
+    border: 1px solid #fef08a;
+    color: #854d0e;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* שדה חיפוש מהיר נפרד */
+.fast-search-group {
+    background-color: #f8fafc;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px dashed #cbd5e1;
+    margin-bottom: 26px;
+}
+
+/* עיצוב שדות הקלט */
+.form-group {
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* מעטפת שדות עם אייקונים פנימיים */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    background-color: #fff;
+    color: #0f172a;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* התאמת ריווח בשדות המכילים אייקון */
+.input-with-icon input {
+    padding-right: 40px;
+}
+
+input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.11);
+}
+
+/* אייקון בתוך שדה */
+.field-icon {
+    position: absolute;
+    right: 14px;
+    font-size: 1.05rem;
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+/* סידור שדות בשורה אחת */
+.row {
+    display: flex;
+    gap: 16px;
+}
+
+.row .form-group {
+    flex: 1;
+}
+
+/* עיצוב הכפתור הראשי */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #3b82f6; /* הצבע הכחול המקורי שלך */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    background-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* התאמה לשדות זמן ומנוע הבחירה של הדפדפן */
+input[type="time"] {
+    cursor: pointer;
+}
+
+/* התאמה למסכים קטנים (מובייל) */
+@media (max-width: 640px) {
+    .row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-container {
+        padding: 24px;
+    }
+    
+    .add-business-wrapper {
+        padding: 20px 12px;
+    }
+}

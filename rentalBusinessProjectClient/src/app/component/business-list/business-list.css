@@ -1,0 +1,221 @@
+.list-wrapper {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    direction: rtl;
+}
+
+.list-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.list-header h1 {
+    color: #2d3436;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.business-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.business-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.business-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    height: 150px;
+    background: #f1f2f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.category {
+    background: #e1f5fe;
+    color: #0288d1;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.card-content h3 {
+    margin: 15px 0 10px;
+    color: #2d3436;
+}
+
+.location {
+    color: #636e72;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: #2d3436;
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* --- עיצוב בועת קומיקס להערות --- */
+.comments-bubble {
+    position: relative;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    color: #475569;
+    font-style: italic;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* החץ הקטן של בועת הקומיקס */
+.comments-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 20px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #e2e8f0 transparent;
+}
+
+.comments-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 21px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent #f8fafc transparent;
+}
+
+.details-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: linear-gradient(135deg, #bdbdd1, #cbc9e2);
+    color: rgb(19, 17, 17);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.details-btn:hover {
+    background: #95929e;
+}
+
+.map-toggle-btn {
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #0f5ad2;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.map-toggle-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.map-container {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- עיצוב חדש למיכל החיפוש עם זכוכיות מגדלת פנימיות --- */
+.top-search-bar {
+    background-color: #f1f5f9;
+    padding: 24px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box-container {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.search-field-group {
+    position: relative;
+    flex: 1;
+}
+
+.search-field-group input {
+    width: 100%;
+    padding: 12px 44px 12px 16px; /* מרווח ימני גדול בשביל הזכוכית מגדלת */
+    font-size: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.search-field-group input:focus {
+    transform: translateY(-1px);
+    border-color: #bbbbdd;
+    box-shadow: 0 10px 15px -3px rgba(2, 5, 154, 0.1);
+}
+
+.search-icon-inside {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: #64748b;
+    pointer-events: none; /* מונע בעיות לחיצה על האייקון */
+}
+
+@media (max-width: 640px) {
+    .search-box-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

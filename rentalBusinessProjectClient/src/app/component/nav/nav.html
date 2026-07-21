@@ -1,0 +1,30 @@
+<nav class="my-nav">
+  <div class="logo">נותנים ונהנים</div>
+
+  <div class="menu">
+    <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">דף הבית</a>
+    <a routerLink="/businesses" routerLinkActive="active-link">גמח"ים</a>
+    @if (!userService.currentUser(); as user)
+    
+    {
+          <a routerLink="/login" routerLinkActive="active-link">התחברות</a>
+              <a routerLink="/register" routerLinkActive="active-link">הרשמה</a>
+
+
+    }
+
+    @if (userService.currentUser(); as user) {
+    <a routerLink="/add-business" routerLinkActive="active-link">הוספת גמ"ח</a>
+    <a routerLink="/my-businesses" routerLinkActive="active-link">הגמח"ים שלי</a>
+    <a routerLink="/login" routerLinkActive="active-link">אזור אישי</a>
+
+    }
+  </div>
+
+  @if (userService.currentUser(); as user) {
+  <div class="user-info">
+    <span class="user-name">👤 {{ user.name }}</span>
+    <button (click)="logout()" class="logout-btn" routerLink="/login"> להתנתקות🚪</button>
+  </div>
+  }
+</nav>

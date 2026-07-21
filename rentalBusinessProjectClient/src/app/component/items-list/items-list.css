@@ -1,0 +1,178 @@
+.inventory-container {
+  padding: 40px 5%;
+  direction: rtl;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  min-height: 85vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  color: #0f172a;
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* כפתור הוספת פריט מעוצב בכחול-סגלגל המקורי */
+.btn-add-inline {
+  background-color: #6366f1; /* כחול-סגלגל חי */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-add-inline:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+/* עיצוב הטבלה המודרנית */
+.inventory-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 30px;
+}
+
+th, td {
+  padding: 16px 20px;
+  text-align: right;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: #f8fafc;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.item-desc {
+  color: #64748b;
+  font-size: 0.92rem;
+}
+
+.item-price {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* תגית מעוצבת לכמות */
+.badge-amount {
+  background-color: #f1f5f9;
+  color: #334155;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+/* אזור כפתורים בתוך הטבלה */
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* בסיס אחיד לכפתורי הטבלה */
+.action-table-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.action-table-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ערוך - כחול סגלגל בסיס */
+.btn-edit-item {
+  background-color: #6366f1;
+}
+
+.btn-edit-item:hover {
+  background-color: #4f46e5;
+}
+
+/* מחק - כחול סגלגל כהה ועמוק */
+.btn-delete-item {
+  background-color: #3730a3;
+}
+
+.btn-delete-item:hover {
+  background-color: #312e81;
+}
+
+/* כפתור חזרה לתחתית העמוד */
+.footer-actions {
+  margin-top: 20px;
+}
+
+.back-link-btn {
+  background-color: transparent;
+  color: #4f46e5;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.back-link-btn:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #4338ca;
+}
+
+/* מצבי טעינה וריק */
+.loader-status, .empty-inventory {
+  text-align: center;
+  padding: 50px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 1.1rem;
+}

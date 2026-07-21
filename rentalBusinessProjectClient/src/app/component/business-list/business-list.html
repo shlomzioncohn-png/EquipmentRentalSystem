@@ -1,0 +1,82 @@
+<div class="list-wrapper">
+  <div class="list-wrapper">
+
+    <div class="top-search-bar">
+      <div class="search-box-container">
+        
+        <div class="search-field-group">
+          <span class="search-icon-inside">🔍</span>
+          <input type="text" placeholder="חפשו גמ''ח לפי עיר..." (input)="onCityInput($event)">
+        </div>
+
+        <div class="search-field-group">
+          <span class="search-icon-inside">🔍</span>
+          <input type="text" placeholder="חפשו גמ''ח לפי שם..." (input)="onNameInput($event)">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="list-header">
+      <h1>הגמח"ים שלנו</h1>
+      <p>מצאו את הגמ"ח המתאים לכם ביותר מתוך המגוון שלנו</p>
+    </div>
+
+    @if (isLoading()) {
+    <div class="loader">טוען גמח"ים...</div>
+    }
+    @else {
+    <div class="business-grid">
+      @for (b of businesses(); track b.id) {
+      <div class="business-card">
+        <div class="card-image">
+          <div class="placeholder-img">🏢</div>
+        </div>
+        <div class="card-content">
+          <span class="category">גמ"ח רשום</span>
+          <h3>{{ b.name }}</h3>
+          <p class="location">📍 {{ b.city}}, {{ b.street }} ,{{ b.houseNumber }}</p>
+          <button class="map-toggle-btn" (click)="toggleMap(b.id)">
+            {{ activeMapId === b.id ? '❌ סגור מפה' : '🗺️ הצג מפה' }}
+          </button>
+
+          @if (activeMapId === b.id) {
+          <div class="map-container" style="margin-top: 10px; border-radius: 8px; overflow: hidden;">
+            <app-business-map [lat]="b.latitude" [lng]="b.longitude" [businessName]="b.name">
+              </app-business-map>
+          </div>
+          }
+
+          <div class="contact-info">
+            <span>📞 {{ b.phoneNumber }}</span>
+            <span>🕒 {{ b.openTime }} - {{ b.closeTime }}</span>
+            
+            @if (b.comments) {
+              <div class="comments-bubble">
+                <span>{{b.comments}}</span>
+              </div>
+            }
+
+          </div>
+
+          <div class="card-actions" style="display: flex; gap: 8px; margin-top: 15px;">
+
+            <button class="details-btn" (click)="goToDetails(b.id)" style="flex: 1;">
+              צפייה בפרטים
+            </button>
+
+            <button class="details-btn" [routerLink]="['/item-list', b.id]"
+              style="flex: 1; background-color:linear-gradient(135deg, #bdbdd1, #cbc9e2); border: none; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 0.9rem; transition: 0.3s;">
+              📦 ציוד זמין
+            </button>
+
+          </div>
+        </div>
+      </div>
+      } @empty {
+      <p class="no-data">לא נמצאו גמח"ים להצגה כרגע.</p>
+      }
+    </div>
+    }
+  </div>
+</div>

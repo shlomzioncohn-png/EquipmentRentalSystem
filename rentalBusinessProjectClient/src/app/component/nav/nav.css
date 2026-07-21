@@ -1,0 +1,82 @@
+.my-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 30px;
+  background-color: #1a1919; /* הצבע האדום המקורי שלך */
+  color: white;
+  direction: rtl;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* הוספת צל קל מתחת לניווט למראה פרימיום */
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: -0.5px;
+}
+
+.menu {
+  display: flex;
+  gap: 24px;
+}
+
+.menu a {
+  color: rgba(255, 255, 255, 0.85); /* לבן רך קצת, כדי שהאקטיבי יבלוט */
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.98rem;
+  padding-bottom: 4px;
+  transition: all 0.25s ease;
+  border-bottom: 2px solid transparent;
+}
+
+/* אפקט ריחוף על הקישורים */
+.menu a:hover {
+  color: #ffffff;
+  border-bottom: 2px solid #efedf2; /* הסגול המקורי שלך */
+}
+
+/* קישור פעיל נוכחי */
+.menu a.active-link {
+  color: #ffffff;
+  font-weight: 700;
+  border-bottom: 2px solid #6003e3;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* --- עיצוב משודרג ובולט לכפתור היציאה --- */
+.logout-btn {
+  background-color: rgba(255, 255, 255, 0.1); /* רקע בהיר שקוף עדין */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* מסגרת דקה */
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* אפקט ריחוף שהופך את הכפתור לברור, לבן ויוקרתי */
+.logout-btn:hover {
+  background-color: #ffffff;
+  color: #0b0b0b; /* הופך לצבע האדום של הבר כדי ליצור קונטרסט מושלם */
+  border-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}

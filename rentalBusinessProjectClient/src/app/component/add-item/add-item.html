@@ -1,0 +1,70 @@
+<div class="add-item-wrapper">
+  <div class="form-container">
+
+    <div class="form-header">
+
+      <h2>{{ isEditMode() ? 'עריכת פריט' : 'הוספת פריט חדש לגמ"ח' }}</h2>
+
+
+      @if (currentBusiness()) {
+      <p>גמ"ח: <strong>{{ currentBusiness().name }}</strong> | עיר: {{ currentBusiness().city }}</p>
+      }
+    </div>
+
+    @if (userService.currentUser()) {
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>שם הפריט </label>
+        <input type="text" formControlName="name"
+          [class.is-invalid]="itemForm.get('name')?.invalid && itemForm.get('name')?.touched">
+
+        @if (itemForm.get('name')?.invalid && itemForm.get('name')?.touched) {
+        <small class="error-text">שם הפריט הוא שדה חובה</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>תיאור הפריט </label>
+        <input type="text" formControlName="description">
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>כמות</label>
+          <input type="text" formControlName="amount">
+        </div>
+
+        <div class="form-group">
+          <label>מחיר (אם זה בחינם הכנס 0)</label>
+          <input type="number" formControlName="price">
+        </div>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" formControlName="isReturnable">
+          <span>להשאלה?</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>הערות</label>
+        <input type="text" formControlName="comments">
+      </div>
+
+  <button type="submit" [disabled]="itemForm.invalid || isLoading() || !currentBusiness()" class="submit-btn">
+    {{ isLoading() ? 'שומר פריט...' : (isEditMode() ? 'עדכן פריט' : 'הוסף פריט לגמ"ח') }}
+  </button>
+
+  <button type="button" class="cancel-btn" routerLink="/my-businesses">ביטול וחזרה</button>
+
+  </form>
+  } @else {
+  <div class="error-message">
+    <p>יש להתחבר כדי לבצע פעולות.</p>
+    <button routerLink="/login">להתחברות</button>
+  </div>
+  }
+</div>
+</div>
